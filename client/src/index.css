@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import "tailwindcss";
+
+html {
+  font-family: 'Nunito', sans-serif;
+  font-size: 22px;
+  color: black;
+  background-color: #eaebf4;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80' viewBox='0 0 80 80'%3E%3Cg fill='%236fa1e3' fill-opacity='0.33'%3E%3Cpath fill-rule='evenodd' d='M11 0l5 20H6l5-20zm42 31a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM0 72h40v4H0v-4zm0-8h31v4H0v-4zm20-16h20v4H20v-4zM0 56h40v4H0v-4zm63-25a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM53 41a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-30 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm-28-8a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zM56 5a5 5 0 0 0-10 0h10zm10 0a5 5 0 0 1-10 0h10zm-3 46a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm10 0a3 3 0 1 0 0-6 3 3 0 0 0 0 6zM21 0l5 20H16l5-20zm43 64v-4h-4v4h-4v4h4v4h4v-4h4v-4h-4zM36 13h4v4h-4v-4zm4 4h4v4h-4v-4zm-4 4h4v4h-4v-4zm8-8h4v4h-4v-4z'/%3E%3C/g%3E%3C/svg%3E");
+}
+
+body {
+  min-height: 100vh;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#registerForm, #signInForm {
+  padding: 30px 0;
+}
+
+form input {
+  outline: solid 1px #ccc;
+  margin: 5px 5px 5px 10px;
+  border-radius: 5px;
+  padding: 4px 8px;
+}
+
+#username {
+  margin-bottom: 10px;
+}
+
+#password {
+  margin-bottom: 10px;
+}
+
+form input:focus {
+  border-color: #4a90e2;
+  box-shadow: 0 0 0 3px rgba(74, 144, 226, 0.2);
+  outline: none;
+}
+
+#signIn_btn {
+  margin-top: 10px;
+}
+
+#register_btn {
+  margin: 20px 0 0 0
+}
+
+#resetDiv p:first-of-type {
+  margin-bottom: 5px;
+}
+
+#resetDiv p:nth-of-type(2) {
+  margin-bottom: 10px;
+}
+
+#accountExists {
+  margin-bottom: 15px;
+}
+
+.errmsg {
+  background-color: lightpink;
+  color: firebrick;
+  font-weight: bold;
+  padding: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.instructions {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  font-size: 0.75rem;
+  border-radius: 0.5rem;
+  background: #fecdd3;
+  color: #9f1239	;
+  padding: 0.25rem;
+  position: absolute;
+}
+
+#username_note {
+  top: -55px;
+}
+
+#pwd_note {
+  top: -82px;
+}
+
+#match_note {
+  top: -5px;
+}
+
+.instructions > svg {
+  margin-right: 0.25rem;
+}
+
+.offscreen {
+  position: absolute;
+  left: -9999px;
+}
+
+#success_circle {
+  margin-bottom: 60px;
+}
+
+#success_note {
+  margin-top: 40px;
+}
+
+#persist, #persist:focus {
+  margin-top: 5px;
+  outline: none;
+  box-shadow: none;
+}
+
+/* CSS FOR THE CARD ON THE MISSING PAGE */
+.card-emoji {
+  margin: 1rem 0;
+  margin-top: 2rem;
+}
+
+.card-emoji-cross {
+  margin: 0.5rem 0;
+  margin-top: 3rem;
+}
+
+.card-title {
+  margin: 1.5rem 0;
+}
+.card-text {
+  margin-bottom: 3.5rem;
+}
+.card-link {
+  margin: 1rem 0;
+  margin-bottom: 2rem;
+}
+
+.card-link-cross {
+  margin: 0.5rem 0;
+  margin-bottom: 2.5rem;
+}
+/* CSS FOR THE CARD ON THE MISSING PAGE */
+
+.main-grid {
+  margin: auto;
+}
+
+.controls {
+  gap: 16px;
+  padding-left: 24px;
+  padding-right: 24px;
+  padding-top: 12px;
+  padding-bottom: 12px;
+}
+
+.chat-list {
+  padding: 5px;
+}
+
+.hide-btn {
+  margin-left: 190px;
+}
