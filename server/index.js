@@ -13,6 +13,7 @@ const errorHandler = require("./middleware/errorHandler");
 const { Server } = require("socket.io");
 const jwt = require("jsonwebtoken");
 const User = require("./model/User");
+const { isAllowedOrigin } = require("./config/allowedOrigins");
 
 connectDB();
 
@@ -42,11 +43,17 @@ app.use(errorHandler);
 
 mongoose.connection.once("open", () => {
   console.log("Connected to MongoDB");
-  const expressServer = app.listen(PORT, () => console.log("Server is running!"));
+  const expressServer = app.listen(process.env.PORT || PORT, () => console.log("Server is running!"));
 
   const io = new Server(expressServer, {
     cors: {
-      origin: ["http://localhost:5174", "http://localhost:5173"],
+      origin: (origin, callback) => {
+        if (isAllowedOrigin(origin)) {
+          callback(null, true);
+        } else {
+          callback(new Error("Not allowed by CORS"));
+        }
+      },
       credentials: true,
     },
   });
