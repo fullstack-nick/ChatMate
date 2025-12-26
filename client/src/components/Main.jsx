@@ -403,8 +403,8 @@ const Main = ({ setForcedLogout }) => {
                     setCtx({ open: true, x: e.clientX, y: e.clientY, chat });
                   }}
                 >
-                  <div className="font-medium truncate">{title}</div>
-                  <div className="text-xs text-slate-500 truncate">{preview}</div>
+                  <div className="font-medium text-[13px] sm:text-sm truncate">{title}</div>
+                  <div className="text-[11px] sm:text-xs text-slate-500 truncate">{preview}</div>
                 </button>
               );
             })}

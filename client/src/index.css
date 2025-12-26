@@ -166,3 +166,24 @@ form input:focus {
 .hide-btn {
   margin-left: 190px;
 }
+
+@media (max-width: 640px) {
+  body {
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  .main-grid {
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    border-radius: 0;
+  }
+
+  #loginForm {
+    margin-left: 16px;
+    margin-right: 16px;
+    width: calc(100% - 32px);
+    max-width: calc(100% - 32px);
+  }
+}

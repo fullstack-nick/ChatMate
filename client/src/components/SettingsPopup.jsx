@@ -19,7 +19,6 @@ const SettingsPopup = ({ showSettingsPopup, setShowSettingsPopup, errMsg, setErr
                 params: { username: auth.username }
             });
             const data = res.data;
-            console.log(data);
             /* OR JUST DATA BELOW INSTEAD OF DATA.DEVICES */
             setDevices(data.devices || []);
 
@@ -105,7 +104,7 @@ const SettingsPopup = ({ showSettingsPopup, setShowSettingsPopup, errMsg, setErr
   return (
    <section
     onClick={(e) => e.stopPropagation()}
-    className={`relative flex flex-col justify-start items-stretch h-100 w-130 rounded-2xl shadow-2xl bg-white transition ${
+    className={`relative flex flex-col justify-start items-stretch h-100 w-130 max-h-[calc(100vh-4rem)] max-w-[calc(100vw-2rem)] rounded-2xl shadow-2xl bg-white transition ${
         showSettingsPopup ? "opacity-100" : "opacity-0 pointer-events-none"
     }`}
    >
@@ -118,7 +117,7 @@ const SettingsPopup = ({ showSettingsPopup, setShowSettingsPopup, errMsg, setErr
     </button>
 
     <header className="px-6 pt-6 pb-3">
-        <h2 className="text-xl font-semibold text-slate-900">Active devices</h2>
+        <h2 className="text-lg sm:text-xl font-semibold text-slate-900">Active devices</h2>
         {!effectiveTrusted && (
             <p className="mt-2 text-sm text-amber-700 bg-amber-50 border border-amber-200 rounded-lg px-3 py-2">
             Only <strong>trusted</strong> devices can mark other devices as trusted
@@ -144,39 +143,39 @@ const SettingsPopup = ({ showSettingsPopup, setShowSettingsPopup, errMsg, setErr
                 return (
                   <li
                     key={d._id}
-                    className="flex items-center justify-between gap-4 px-4 py-3"
+                    className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 px-3 sm:px-4 py-3"
                   >
-                    <div className="min-w-0">
+                    <div className="min-w-0 w-full">
                       <div className="flex items-center gap-2">
                         <span className="text-xs text-slate-500">#{idx + 1}</span>
                         {isCurrent && (
-                          <span className="text-xs font-medium text-indigo-700 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded-full">
+                          <span className="text-[11px] sm:text-xs font-medium text-indigo-700 bg-indigo-50 border border-indigo-200 px-2 py-0.5 rounded-full">
                             This device
                           </span>
                         )}
                       </div>
-                      <div className="mt-1 font-mono text-sm text-slate-900 truncate">
+                      <div className="mt-1 font-mono text-xs sm:text-sm text-slate-900 break-all">
                         id: {d._id}
                       </div>
-                      <div className="mt-0.5">
+                      <div className="mt-1">
                         {displayTrusted ? (
-                          <span className="text-xs font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">
+                          <span className="text-[11px] sm:text-xs font-medium text-emerald-700 bg-emerald-50 border border-emerald-200 px-2 py-0.5 rounded-full">
                             Trusted
                           </span>
                         ) : (
-                          <span className="text-xs font-medium text-slate-700 bg-slate-50 border border-slate-200 px-2 py-0.5 rounded-full">
+                          <span className="text-[11px] sm:text-xs font-medium text-slate-700 bg-slate-50 border border-slate-200 px-2 py-0.5 rounded-full">
                             Not trusted
                           </span>
                         )}
                       </div>
                     </div>
 
-                    <div className="flex items-center gap-2 shrink-0">
+                    <div className="flex flex-wrap sm:flex-nowrap items-center gap-2 w-full sm:w-auto justify-start sm:justify-end shrink-0">
                       <button
                         onClick={() => toggleTrust(d)}
                         disabled={!canAct}
                         title={disabledReason || (isCurrent ? "Cannot change current device." : "")}
-                        className={`px-3 py-1.5 rounded-lg border text-sm transition active:translate-y-px ${
+                        className={`px-2.5 py-1.5 sm:px-3 rounded-lg border text-xs sm:text-sm transition active:translate-y-px ${
                           canAct
                             ? "bg-white border-slate-300 hover:bg-slate-50"
                             : "bg-slate-100 border-slate-200 text-slate-400 cursor-not-allowed"
@@ -189,7 +188,7 @@ const SettingsPopup = ({ showSettingsPopup, setShowSettingsPopup, errMsg, setErr
                         onClick={() => logOutDevice(d)}
                         disabled={!canAct}
                         title={disabledReason || (isCurrent ? "Cannot log out the current device." : "")}
-                        className={`px-3 py-1.5 rounded-lg border text-sm transition active:translate-y-px ${
+                        className={`px-2.5 py-1.5 sm:px-3 rounded-lg border text-xs sm:text-sm transition active:translate-y-px ${
                           canAct
                             ? "bg-white border-slate-300 hover:bg-slate-50"
                             : "bg-slate-100 border-slate-200 text-slate-400 cursor-not-allowed"
